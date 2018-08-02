@@ -121,6 +121,46 @@
           }
         }
       }
+    },
+    "ngx-lesson-ngfor-trackby": {
+      "root": "projects/ngx-lesson-ngfor-trackby",
+      "sourceRoot": "projects/ngx-lesson-ngfor-trackby/src",
+      "projectType": "library",
+      "prefix": "ngx-lesson",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-lesson-ngfor-trackby/tsconfig.lib.json",
+            "project": "projects/ngx-lesson-ngfor-trackby/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/ngx-lesson-ngfor-trackby/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-lesson-ngfor-trackby/src/test.ts",
+            "tsConfig": "projects/ngx-lesson-ngfor-trackby/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-lesson-ngfor-trackby/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-lesson-ngfor-trackby/tsconfig.lib.json",
+              "projects/ngx-lesson-ngfor-trackby/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "angular-lessons"

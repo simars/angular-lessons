@@ -16,6 +16,14 @@
     "lib": [
       "es2017",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ngx-lesson-ngfor-trackby": [
+        "dist/ngx-lesson-ngfor-trackby"
+      ],
+      "ngx-lesson-ngfor-trackby/*": [
+        "dist/ngx-lesson-ngfor-trackby/*"
+      ]
+    }
   }
 }
