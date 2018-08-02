@@ -1,0 +1,57 @@
+<h1>Improve *ngFor  usability and performance with trackBy | Lesson by <a href="https://github.com/simars" target="_blank">Simar</a></h1>
+<h3>Prevent <span style= "color:red">loss of focus</span> and <span style= "color:red">reconstrution</span> of elements in your <span style= "color:red">*ngFor on collection change</span> with trackBy</h3>
+
+<p>
+  Note: “change the collection-data” means to replace the collection with new objects and not keeping the same reference.
+</p>
+
+<hr/>
+<h1>Example</h1>
+<h2>Tracking ngFor on list items changing every 5 seconds switching line bullets between english & spanish in different colors</h2>
+<h3>Find implementation on
+  <a href="https://github.com/simars/angular-lessons/tree/master/projects/ngx-lesson-ngfor-trackby/src/lib" target="_blank">Github</a>
+</h3>
+
+<hr/>
+<hr/>
+<h2 style="color: red">Without trackBy :(</h2>
+<h4>Try inputting text in the input boxes</h4>
+<h3>Notice, as the ngFor items change the focus and cursor from the input box you were typing goes away, and you will find you aren't typing anywhere</h3>
+<h3>ngFor here is not tracking elements by id or index.
+  <span style="color: red">When items-collection changes ngFor just destroys and recreates elements for each</span>
+</h3>
+<script src="https://gist.github.com/simars/e9ad61f7fe52f00153dcafef70eadccd.js"></script>
+<div>
+  <ul>
+    <li *ngFor="let item of items; let i = index">
+      <strong [style.color]="item.color">{{item.id}} | {{item.name}}</strong>
+      <input size="100%" [value]="values[i]" (input)="values[i] = $event.target.value" >
+    </li>
+  </ul>
+</div>
+
+
+<hr/>
+<hr/>
+
+<h2 style="color: darkgreen">With track by :)</h2>
+<h4>Try inputting text in the input boxes</h4>
+<h3>Notice, as the ngFor items change as, text and focus and cursor in input boxes stays, and you can continue typing even as the bullets keep changing </h3>
+<h3>ngFor is tracking each element to its rendering in dom by id, and
+  <span style="color: darkgreen">it just renders the corresponding changes in place using using standard change detection </span>
+  <del> instead of destroying and recreating elements</del>
+</h3>
+<ul>
+  <li *ngFor="let itemTrackBy of items; trackBy: trackByFn; let i = index">
+    <strong [style.color]="itemTrackBy.color" >{{itemTrackBy.id}} | {{itemTrackBy.name}}</strong>
+    <input size="100%" [value]="values[i]" (input)="values[i] = $event.target.value">
+  </li>
+</ul>
+
+<hr/>
+<hr/>
+<h2>
+  Note: If you don't have id (unique-key) for each data-item in your collection, you can always trackBy index (second argument passed to trackByFn).
+  If you use a field to track by that is not unique, angular will throw an error
+</h2>
+

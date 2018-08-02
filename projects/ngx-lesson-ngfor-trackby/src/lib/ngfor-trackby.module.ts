@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
-import { NgxLessonNgforTrackbyComponent } from './ngx-lesson-ngfor-trackby.component';
+import { NgforTrackbyComponent } from './ngfor-trackby.component';
 import {CommonModule} from '@angular/common';
 
 @NgModule({
   imports: [
     CommonModule
   ],
-  declarations: [NgxLessonNgforTrackbyComponent],
-  exports: [NgxLessonNgforTrackbyComponent]
+  declarations: [NgforTrackbyComponent],
+  exports: [NgforTrackbyComponent]
 })
 export class NgxLessonNgforTrackbyModule { }

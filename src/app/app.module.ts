@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import {NgxLessonNgforTrackbyModule} from '../../projects/ngx-lesson-ngfor-trackby/src/lib/ngx-lesson-ngfor-trackby.module';
+import {NgxLessonNgforTrackbyModule} from '../../projects/ngx-lesson-ngfor-trackby/src/lib/ngfor-trackby.module';
 
 @NgModule({
   declarations: [
